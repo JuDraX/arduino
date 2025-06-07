@@ -1,0 +1,17 @@
+#define pulsador 2
+#define led 13
+
+void setup() {
+  pinMode(pulsador,INPUT);
+  pinMode(led,OUTPUT);
+}
+
+void loop() {
+  int valor=digitalRead(pulsador);
+  if(valor){
+    digitalWrite(led,HIGH);
+    delay(1000);
+    digitalWrite(led,LOW);
+  }
+  delay(100);
+}
