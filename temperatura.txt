@@ -1,0 +1,25 @@
+const int sensorPin = A0;   
+const int ledPin = 9;        
+float temperatura = 0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int valorADC = analogRead(sensorPin);     
+  temperatura = (valorADC * 5.0 * 100.0) / 1023.0;  
+
+  Serial.print("Temperatura: ");
+  Serial.print(temperatura);
+  Serial.println(" °C");
+
+  if (temperatura > 50) {
+    digitalWrite(ledPin, HIGH); 
+  } else if (temperatura < 45) {
+    digitalWrite(ledPin, LOW);  
+  }
+
+  delay(1000);  
+}
